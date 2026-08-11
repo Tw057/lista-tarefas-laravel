@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --surface: #ffffff;
+    --surface-muted: #f8fafc;
+    --surface-soft: #eef2ff;
+    --border: rgba(148, 163, 184, 0.18);
+    --text: #0f172a;
+    --muted: #64748b;
+    --primary: #4f46e5;
+    --primary-soft: #eef2ff;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    background-image: radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 28%),
+                      radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.08), transparent 30%);
+}
+
+::selection {
+    @apply bg-indigo-100 text-slate-900;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+input,
+textarea,
+select {
+    @apply bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-3xl shadow-sm focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 focus:outline-none;
+}
+
+button {
+    @apply transition duration-200 ease-in-out;
+}
+
+.menu-item {
+    @apply text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-2xl transition;
+}
+
+.menu-item-active {
+    @apply bg-slate-900 text-white shadow-lg;
+}
+
+.card-surface {
+    @apply rounded-[32px] bg-white border border-slate-200/80 shadow-[0_20px_60px_rgba(15,23,42,0.08)];
+}
+
+.card-surface-soft {
+    @apply rounded-[28px] bg-slate-950 text-white shadow-[0_18px_50px_rgba(15,23,42,0.18)];
+}
+
+.btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-slate-950 text-white px-5 py-3 text-sm font-semibold shadow-lg shadow-slate-950/15 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 focus:ring-offset-slate-50;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 px-5 py-3 text-sm font-semibold hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2 focus:ring-offset-slate-50;
+}
+
+.btn-danger {
+    @apply inline-flex items-center justify-center rounded-2xl bg-red-600 text-white px-5 py-3 text-sm font-semibold shadow-sm hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-50;
+}
+
+.badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 bg-slate-100;
+}
+
+.badge-success {
+    @apply bg-emerald-100 text-emerald-700;
+}
+
+.badge-warning {
+    @apply bg-amber-100 text-amber-700;
+}
+
+.badge-danger {
+    @apply bg-rose-100 text-rose-700;
+}
+
+.badge-info {
+    @apply bg-sky-100 text-sky-700;
+}
+
+.shadow-panel {
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+}
+
+.skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(241,245,249,0.8) 50%, rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+.toast-enter {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.toast-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .25s ease-out;
+}
+
+.toast-leave {
+    opacity: 1;
+}
+
+.toast-leave-active {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all .2s ease-in;
+}
