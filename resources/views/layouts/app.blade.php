@@ -21,6 +21,12 @@
 
                 <div class="lg:pl-80">
                     <main class="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
+                        @isset($header)
+                            <div class="mb-8">
+                                {{ $header }}
+                            </div>
+                        @endisset
+
                         {{ $slot }}
                     </main>
                 </div>

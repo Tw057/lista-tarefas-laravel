@@ -11,11 +11,10 @@
         </div>
 
         <div class="space-y-2">
-            <a href="{{ route('dashboard') }}" class="menu-item menu-item-active block px-4 py-4 text-sm font-semibold">Dashboard</a>
-            <a href="{{ route('dashboard') }}" class="menu-item block px-4 py-4 text-sm font-semibold">Minhas tarefas</a>
-            <a href="{{ route('dashboard') }}" class="menu-item block px-4 py-4 text-sm font-semibold">Tarefas concluídas</a>
-            <a href="{{ route('profile.edit') }}" class="menu-item block px-4 py-4 text-sm font-semibold">Perfil</a>
-            <a href="{{ route('profile.edit') }}" class="menu-item block px-4 py-4 text-sm font-semibold">Configurações</a>
+            <a href="{{ route('dashboard') }}" class="menu-item {{ request()->routeIs('dashboard') ? 'menu-item-active' : '' }} block px-4 py-4 text-sm font-semibold">Dashboard</a>
+            <a href="{{ route('tarefas.index') }}" class="menu-item {{ request()->routeIs('tarefas.index') ? 'menu-item-active' : '' }} block px-4 py-4 text-sm font-semibold">Minhas tarefas</a>
+            <a href="{{ route('tarefas.create') }}" class="menu-item {{ request()->routeIs('tarefas.create') ? 'menu-item-active' : '' }} block px-4 py-4 text-sm font-semibold">Nova tarefa</a>
+            <a href="{{ route('profile.edit') }}" class="menu-item {{ request()->routeIs('profile.edit') ? 'menu-item-active' : '' }} block px-4 py-4 text-sm font-semibold">Perfil</a>
         </div>
 
         <div class="mt-auto rounded-[28px] border border-slate-200 bg-slate-50 p-5">
@@ -49,11 +48,10 @@
             </button>
         </div>
         <div x-show="mobileOpen" x-transition class="mt-4 space-y-2">
-            <a href="{{ route('dashboard') }}" class="menu-item block px-4 py-3 font-semibold">Dashboard</a>
-            <a href="{{ route('dashboard') }}" class="menu-item block px-4 py-3 font-semibold">Minhas tarefas</a>
-            <a href="{{ route('dashboard') }}" class="menu-item block px-4 py-3 font-semibold">Tarefas concluídas</a>
-            <a href="{{ route('profile.edit') }}" class="menu-item block px-4 py-3 font-semibold">Perfil</a>
-            <a href="{{ route('profile.edit') }}" class="menu-item block px-4 py-3 font-semibold">Configurações</a>
+            <a href="{{ route('dashboard') }}" class="menu-item {{ request()->routeIs('dashboard') ? 'menu-item-active' : '' }} block px-4 py-3 font-semibold">Dashboard</a>
+            <a href="{{ route('tarefas.index') }}" class="menu-item {{ request()->routeIs('tarefas.index') ? 'menu-item-active' : '' }} block px-4 py-3 font-semibold">Minhas tarefas</a>
+            <a href="{{ route('tarefas.create') }}" class="menu-item {{ request()->routeIs('tarefas.create') ? 'menu-item-active' : '' }} block px-4 py-3 font-semibold">Nova tarefa</a>
+            <a href="{{ route('profile.edit') }}" class="menu-item {{ request()->routeIs('profile.edit') ? 'menu-item-active' : '' }} block px-4 py-3 font-semibold">Perfil</a>
             <form method="POST" action="{{ route('logout') }}" class="px-4 py-3">
                 @csrf
                 <button type="submit" class="btn-secondary w-full">Logout</button>
