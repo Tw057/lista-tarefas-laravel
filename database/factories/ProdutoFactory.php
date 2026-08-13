@@ -1,0 +1,39 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Model>
+ */
+class ProdutoFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'nome' => $this->faker->word(),
+            'preco' => $this->faker->randomFloat(2,10, 500),
+            'estoque' => $this->faker->numberBetween(0, 100),
+            'ativo' => $this->faker->boolean(),
+
+
+            //
+        ];
+    }
+
+    public function esgotado(): static
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'estoque' => 0,
+            ];
+        });
+    }
+}

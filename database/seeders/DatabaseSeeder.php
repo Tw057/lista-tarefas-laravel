@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tarefa;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,5 +22,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $usuario1 = User::factory()->create([
+            'name' => 'Usuario 1',
+            'email' => 'usuario1@example.com',
+            'tarefas' => \App\Models\Tarefa::factory()->count(5)->create(),
+        ]);
+
     }
 }
